@@ -1,0 +1,22 @@
+{
+    "name": "Nodejs",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "dev": "nodemon app.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "nodemon": "^2.0.12"
+    },
+    "dependencies": {
+        "ejs": "^3.1.6",
+        "express": "^4.17.1",
+        "js-sha256": "^0.9.0",
+        "mongoose": "^5.13.5",
+        "socket.io": "^4.1.3"
+    }
+}

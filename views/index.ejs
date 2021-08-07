@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" href="data:,">
+    <title>Chatroom 0.1</title>
+
+    <style>
+        #manly {
+            background-color: wheat;
+        }
+        
+        .chat {
+            margin-top: 0px;
+            font-size: 18px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin-bottom: 9px;
+        }
+        
+        #ChatBox {
+            width: 800px;
+            height: 500px;
+            right: 360px;
+            top: 80px;
+            border: 2px;
+            position: relative;
+            float: right;
+            border-style: solid;
+            border-radius: 10px;
+            border-color: black;
+            background-color: white;
+            overflow: scroll;
+        }
+        
+        .text {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 25px;
+            padding-bottom: 5px;
+        }
+        
+        #inp {
+            position: relative;
+            top: 100px;
+            left: 340px;
+            width: 720px;
+            height: 30px;
+            border-radius: 5px;
+            padding: 0px;
+            margin: 0px;
+            font-size: 20px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        
+        #send {
+            width: 80px;
+            height: 30px;
+            left: 340px;
+            position: relative;
+            top: 100px;
+        }
+    </style>
+    <script defer src="/socket.io/socket.io.js"></script>
+    <script defer src="ez.js"></script>
+
+</head>
+
+<body id="manly">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+    <div style="float: left;width: 200px;height: 200px;position: relative;top:600px;margin: 0px;">
+        <p class="text">Made By Bathishig</p>
+    </div>
+    <div id="ChatBox">
+
+    </div>
+    <input type="text" id="inp">
+    <button id="send" style="padding-bottom: 10px;" onclick="send()"><span style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 18px;">Send</span></button>
+</body>
+
+</html>

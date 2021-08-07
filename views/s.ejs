@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" href="data:,">
+    <script defer src="/socket.io/socket.io.js"></script>
+    <script defer src="ez.js"></script>
+
+</head>
+
+<body>
+    <div>
+        <% Object.keys(channel).forEach(channels => { %>
+            <p>
+                <%= channels %>
+            </p>
+            <a href="/<%= channels %>">Enter</a>
+            <%}) %>
+
+    </div>
+
+</body>
+
+</html>
