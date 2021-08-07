@@ -29,11 +29,6 @@ app.get('/', (req, res) => {
     res.render('login');
 });
 const channel = {}
-userDB.find().then((result) => {
-    result.forEach(result => {
-        channel[result.username] = { users: {} }
-    })
-})
 
 
 app.get('/message', (req, res) => {
@@ -47,12 +42,19 @@ app.get('/message', (req, res) => {
 app.get('/:channels', (req, res) => {
     if (isLogged) {
         whichServerAmIIn = req.params.channels
-        console.log(whichServerAmIIn)
+        console.log(whichServerAmIIn + "blah")
         res.render('index', { channelName: req.params.channels })
     } else {
         res.redirect('/')
     }
 
+})
+app.post('/create', (req, res) => {
+    if (channel[req.body.channelname] != null) {
+        res.redirect('/message')
+    }
+    channel[req.body.channelname] = { users: {} }
+    res.redirect(req.body.channelname)
 })
 app.post('/register', (req, res) => {
     if (req.body.username.length < 5 || req.body.password.lenght < 5) {
@@ -92,11 +94,11 @@ io.on('connection', socket => {
         socket.emit('set-recname', namhe)
     })
     socket.on('set-rec', () => {
-        console.log(whichServerAmIIn)
+        console.log(whichServerAmIIn + "blah")
         socket.emit('set-reclen', whichServerAmIIn)
     })
     socket.on('message', (text, User, Rec) => {
-        const msg = new msgLog({ msg: text, name: User, recipient: Rec })
+        const msg = new msgLog({ msg: text, name: User, room: Rec })
         msg.save().then(() => {
             io.emit('message', msg)
         })
